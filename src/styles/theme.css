@@ -1,0 +1,194 @@
+/* Style « carnet d'aquarelle d'explorateur » — voir memory-bank/art-direction.md */
+
+:root {
+  --encre: #4a3728;
+  --papier: #faf3e3;
+  --papier-2: #f3e8cf;
+  --sable: #e8c98a;
+  --terracotta: #c96f4a;
+  --ceruleen: #5a9bb5;
+  --feuille: #7ba05b;
+  --soleil: #e9b44c;
+  --brume: #a99d8a;
+  --corail-doux: #d98e73;
+  --ombre: rgba(74, 55, 40, 0.18);
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { height: 100%; margin: 0; }
+
+body {
+  background: var(--papier);
+  color: var(--encre);
+  font-family: 'Baloo 2', 'Arial Rounded MT Bold', 'Comic Sans MS', system-ui, sans-serif;
+  font-size: 22px;
+  line-height: 1.7;
+  letter-spacing: 0.03em;
+}
+
+.interlettrage-renforce { letter-spacing: 0.08em; word-spacing: 0.16em; }
+
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 16px 24px;
+}
+
+button {
+  font: inherit;
+  color: var(--encre);
+  background: var(--papier-2);
+  border: 3px solid var(--encre);
+  border-radius: 16px;
+  padding: 12px 22px;
+  min-height: 56px;
+  min-width: 56px;
+  cursor: pointer;
+  box-shadow: 0 3px 0 var(--ombre);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+button:hover:not(:disabled) { transform: translateY(-2px); }
+button:active:not(:disabled) { transform: translateY(1px); box-shadow: 0 1px 0 var(--ombre); }
+button:focus-visible { outline: 4px solid var(--ceruleen); outline-offset: 2px; }
+button:disabled { opacity: 0.45; cursor: default; }
+
+.btn-action { background: var(--terracotta); color: var(--papier); font-weight: 700; }
+.btn-doux { background: var(--sable); }
+.btn-discret { border-width: 2px; min-height: 44px; padding: 6px 14px; font-size: 17px; box-shadow: none; }
+
+/* ---------- barre du haut ---------- */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 0 10px;
+  font-size: 19px;
+}
+.topbar .pastille {
+  background: var(--papier-2);
+  border: 2px solid var(--encre);
+  border-radius: 999px;
+  padding: 2px 14px;
+  white-space: nowrap;
+}
+.topbar .titre { flex: 1; font-weight: 700; font-size: 21px; }
+
+/* ---------- cartes / panneaux ---------- */
+.panneau {
+  background: var(--papier-2);
+  border: 3px solid var(--encre);
+  border-radius: 20px;
+  padding: 20px 24px;
+  box-shadow: 0 4px 0 var(--ombre);
+}
+
+.bulle-pixel {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: #fff;
+  border: 3px solid var(--encre);
+  border-radius: 20px;
+  border-top-left-radius: 4px;
+  padding: 12px 18px;
+  margin: 10px 0;
+}
+.bulle-pixel p { margin: 0; }
+
+/* ---------- mission ---------- */
+.mission { display: flex; flex-direction: column; gap: 14px; flex: 1; }
+
+.points-progression {
+  text-align: center;
+  font-size: 26px;
+  letter-spacing: 0.35em;
+  color: var(--terracotta);
+  user-select: none;
+}
+
+.enonce {
+  text-align: center;
+  font-size: 34px;
+  font-weight: 700;
+  margin: 10px 0;
+  white-space: pre-line;
+}
+.enonce.texte-long { font-size: 24px; font-weight: 500; text-align: left; }
+
+.options { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.options button { font-size: 26px; padding: 18px; }
+.options button.envolee { visibility: hidden; }
+@media (max-width: 560px) { .options { grid-template-columns: 1fr; } }
+
+.numpad { display: grid; grid-template-columns: repeat(3, 84px); gap: 10px; justify-content: center; }
+.numpad button { font-size: 28px; padding: 10px; }
+.saisie {
+  text-align: center;
+  font-size: 36px;
+  font-weight: 700;
+  min-height: 58px;
+  border-bottom: 4px dashed var(--brume);
+  margin: 0 auto;
+  width: 240px;
+}
+
+.feedback-bon { color: var(--feuille); font-weight: 700; text-align: center; font-size: 26px; }
+.feedback-aide {
+  background: #fff;
+  border: 3px solid var(--corail-doux);
+  border-radius: 16px;
+  padding: 14px 18px;
+  text-align: center;
+}
+
+.barre-technique { display: flex; justify-content: center; gap: 10px; min-height: 50px; }
+
+/* ---------- animations douces ---------- */
+@keyframes apparait { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.apparait { animation: apparait 0.3s ease both; }
+
+@keyframes celebration { 0% { transform: scale(1); } 40% { transform: scale(1.12); } 100% { transform: scale(1); } }
+.celebration { animation: celebration 0.4s ease; }
+
+@keyframes flotte { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.flotte { animation: flotte 3.5s ease-in-out infinite; }
+
+@keyframes tourne { to { transform: rotate(360deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+.animations-reduites *, .animations-reduites *::before, .animations-reduites *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+/* ---------- carte du monde ---------- */
+.carte-svg { width: 100%; height: auto; display: block; }
+.pin { cursor: pointer; }
+.pin:focus-visible { outline: 4px solid var(--ceruleen); border-radius: 12px; }
+
+.grille-nav { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 10px; }
+
+/* ---------- bazar ---------- */
+.articles { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+.article { display: flex; flex-direction: column; gap: 8px; }
+.article .nom { font-weight: 700; }
+
+.centre { text-align: center; }
+.ligne { display: flex; gap: 12px; align-items: center; justify-content: center; flex-wrap: wrap; }
+.espace { flex: 1; }
+.pied {
+  margin-top: auto;
+  padding-top: 14px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  font-size: 15px;
+  color: var(--brume);
+  align-items: center;
+}
