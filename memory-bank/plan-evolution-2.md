@@ -29,9 +29,9 @@ et couvert par 57 tests. On remplace la présentation, pas le cerveau.
 
 | Kit | Contenu | Usage |
 |---|---|---|
-| `kenney_tiny-town` (16×16, 130 tiles) | maisons, arbres, chemins, eau, enclos | tilemaps des villages + Bellerive |
-| `kenney_tiny-dungeon` (16×16) | personnages, objets, cœurs, pièces | Charlie, PNJ, mentors, objets au sol |
-| `kenney_ui-pack` (430 fichiers) | boutons, panneaux, curseurs | HUD Phaser + habillage de l'établi |
+| `ninja-adventure` (pixel-boy, CC0) | persos manga, tilesets désert/village/nature, facesets, UI dialog | LE kit principal — monde, PNJ, dialogues |
+| `kenney_ui-pack` (CC0) | boutons, panneaux | réserve pour habillage UI |
+
 
 Licence **Creative Commons CC0** (domaine public) → compatibles avec le repo public, aucune attribution
 requise (on créditera Kenney dans le README par politesse). Source : kenney.nl.

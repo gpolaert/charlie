@@ -7,5 +7,5 @@
 - [x] 5. Vol d'essai (placement.ts) → premier lancement calibré par domaine
 - [x] 6. XP/objets/pièces + Personnage SVG + bazar → un achat change le personnage
 - [x] 7. Chantier 1 complet (Aït-Soleil : récit, L1, Hana Atori + technique, animation, cadeau)
-Étapes 8-11 du plan initial (Bellerive SVG, chantiers 2-3, horloge, salle des cartes) : **remplacées**
+Évolution 2 EN COURS : étapes 1-5 du plan Phaser faites (village marchable manga, PNJ+dialogues, chantier→établi, échoppe→bazar, équipement in-world visible). Restent : vol d essai diégétique, villages 2-3, Bellerive, ambiance. Voir plan-evolution-2.md.
 par l'Évolution 2 « jeu immersif Phaser » — voir `memory-bank/plan-evolution-2.md`.
