@@ -39,6 +39,9 @@ export function Mission({ village, onFin, onQuitter }: Props) {
   const [messagePixel, setMessagePixel] = useState('')
   const debutItem = useRef(performance.now())
   const finEnvoyee = useRef(false)
+  // Garde anti-rebond : le Enter qui valide une réponse ne doit pas aussi
+  // activer le bouton « Continuer » qui vient de prendre le focus.
+  const phaseDepuis = useRef(0)
 
   const item: Item | null = useMemo(() => {
     if (index >= suite.length) return null
@@ -59,6 +62,7 @@ export function Mission({ village, onFin, onQuitter }: Props) {
     if (!item || phase.nom !== 'question') return
     const ms = Math.round(performance.now() - debutItem.current)
     const correcte = valeur === item.reponse
+    phaseDepuis.current = performance.now()
     dispatch({ type: 'reponse', reponse: { skillId: item.skillId, correcte, ms } })
     if (correcte) {
       setBonnes((b) => b + 1)
@@ -74,6 +78,7 @@ export function Mission({ village, onFin, onQuitter }: Props) {
   }
 
   function continuer() {
+    if (performance.now() - phaseDepuis.current < 250) return
     setEnvolees([])
     if (index + 1 >= suite.length) {
       if (!finEnvoyee.current) {

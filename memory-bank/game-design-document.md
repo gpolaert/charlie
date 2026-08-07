@@ -150,8 +150,8 @@ Chaque domaine n'est qu'un **générateur d'items** + un habillage, pas un moteu
 
 ### Méthode de travail (reprise de EnzeD/vibe-coding)
 
-- **`memory-bank/`** à la racine, maintenu à chaque étape : `game-design-document.md` (univers, arc, ton, mentors, table mécanique↔diégèse), `art-direction.md`, `architecture.md` (rôle des fichiers, schéma du save), `implementation-plan.md` (étapes + test de validation), `progress.md`, et **`logbook.md`** — le **journal de bord** : une entrée datée par session de travail, avec le plan retenu, les décisions prises (et pourquoi), les pivots (ex. « CE1 → CE2 », « la Vallée → Bellerive », « ajout des mentors »). Ce plan-ci devient la première entrée. Règle : toute évolution du plan passe par une entrée au logbook, jamais de décision silencieuse.
-- **`CLAUDE.md`** avec la règle « Always » : *lire `memory-bank/architecture.md` avant d'écrire du code ; petits fichiers, pas de monolithe ; cocher `progress.md` et compléter `logbook.md` après chaque étape.*
+- **`memory-bank/`** à la racine, maintenu à chaque étape : `game-design-document.md` (univers, arc, ton, mentors, table mécanique↔diégèse), `art-direction.md`, `architecture.md` (rôle des fichiers, schéma du save), `implementation-plan.md` (étapes + test de validation), `progress.md`. Les décisions se documentent dans les messages de commit.
+- **`CLAUDE.md`** avec la règle « Always » : *lire `memory-bank/architecture.md` avant d'écrire du code ; petits fichiers, pas de monolithe ; cocher `progress.md` après chaque étape.*
 - **`git init` + un commit par étape validée**, et **repo GitHub public `gpolaert/charlie`** créé dès l'étape 1 (`gh repo create gpolaert/charlie --public`), push après chaque étape validée.
 - **Étapes petites et testables** (critère vérifiable dans Chrome ou par Vitest) :
   1. Squelette Vite+React+TS + repo GitHub → l'app démarre sur `localhost:5173`.
@@ -174,7 +174,7 @@ charlie/
   CLAUDE.md
   memory-bank/
     game-design-document.md  art-direction.md  architecture.md
-    implementation-plan.md   progress.md  logbook.md
+    implementation-plan.md   progress.md
   src/
     main.tsx  App.tsx
     game/
@@ -253,6 +253,6 @@ Chaque générateur prend un `palier` et respecte son champ numérique (CE1 ≤ 
 
 ## Périmètre
 
-**Livré (chapitre 1) :** 3 villages/chantiers, 10 domaines, vol d'essai, personnage équipable avec grades, économie XP/objets/pièces, 3 mentors et leurs techniques, Bellerive (reconstruction + mode balade), carnet de cultures, salle des cartes parent, sauvegarde locale, repo public `gpolaert/charlie` avec memory-bank et logbook.
+**Livré (chapitre 1) :** 3 villages/chantiers, 10 domaines, vol d'essai, personnage équipable avec grades, économie XP/objets/pièces, 3 mentors et leurs techniques, Bellerive (reconstruction + mode balade), carnet de cultures, salle des cartes parent, sauvegarde locale, repo public `gpolaert/charlie` avec memory-bank.
 
 **Volontairement hors périmètre :** la **fluence de lecture à voix haute** (90→120 mots/min) — demande reconnaissance vocale ou chronométrage par l'adulte, contraire au cadre « autonome, sans chrono » ; à reprendre en chapitre 2 comme atelier accompagné. Le mode « défi vitesse » optionnel et les chapitres 2+ (nouvelles régions, nouveaux mentors, nouvelles reconstructions) sont prévus par la structure (`content/story/`, `bellerive.ts`, `mentors.ts`) mais non construits.
