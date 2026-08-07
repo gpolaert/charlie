@@ -1,0 +1,41 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>debug atlas</title>
+<style>
+  body { background: #222; color: #eee; font: 12px monospace; }
+  canvas { image-rendering: pixelated; display: block; margin: 12px 0 24px; }
+</style>
+<div id="root"></div>
+<script>
+  const Z = 3
+  const sources = ['kits/ninja/tilesets/TilesetDesert.png', 'kits/ninja/tilesets/TilesetHouse.png', 'kits/ninja/tilesets/TilesetFloor.png']
+  const root = document.getElementById('root')
+  for (const src of sources) {
+    const img = new Image()
+    img.src = src
+    img.onload = () => {
+      const h2 = document.createElement('div')
+      h2.textContent = `${src} — ${img.width}×${img.height} (${img.width / 16}×${img.height / 16} tuiles)`
+      const c = document.createElement('canvas')
+      c.width = img.width * Z + 30
+      c.height = img.height * Z + 30
+      const ctx = c.getContext('2d')
+      ctx.imageSmoothingEnabled = false
+      ctx.fillStyle = '#333'
+      ctx.fillRect(0, 0, c.width, c.height)
+      ctx.drawImage(img, 30, 30, img.width * Z, img.height * Z)
+      ctx.strokeStyle = 'rgba(255,0,80,0.45)'
+      ctx.fillStyle = '#ff5'
+      for (let x = 0; x <= img.width; x += 16) {
+        ctx.beginPath(); ctx.moveTo(30 + x * Z, 30); ctx.lineTo(30 + x * Z, 30 + img.height * Z); ctx.stroke()
+        if (x < img.width) ctx.fillText(x / 16, 30 + x * Z + 14, 20)
+      }
+      for (let y = 0; y <= img.height; y += 16) {
+        ctx.beginPath(); ctx.moveTo(30, 30 + y * Z); ctx.lineTo(30 + img.width * Z, 30 + y * Z); ctx.stroke()
+        if (y < img.height) ctx.fillText(y / 16, 4, 30 + y * Z + 28)
+      }
+      root.appendChild(h2)
+      root.appendChild(c)
+    }
+  }
+</script>
